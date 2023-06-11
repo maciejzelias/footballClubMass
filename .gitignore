@@ -1,0 +1,41 @@
+# .NET Core build artifacts
+bin/
+obj/
+
+# SQLite database file
+*.db
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.vscode
+*.vssettings
+*.vssscc
+*.vsix
+*.sln.docstates
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.generated.cs
+
+# Resharper
+_ReSharper*/
+
+# NuGet packages
+*.nuget.props
+*.nuget.targets
