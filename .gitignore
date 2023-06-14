@@ -2,6 +2,8 @@
 bin/
 obj/
 
+
+client/node_modules/
 # SQLite database file
 *.db
 
