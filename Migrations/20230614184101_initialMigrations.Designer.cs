@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using footballClubMass.Data;
 
@@ -10,53 +11,14 @@ using footballClubMass.Data;
 namespace footballClubMass.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230614184101_initialMigrations")]
+    partial class initialMigrations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
-
-            modelBuilder.Entity("footballClubMass.Models.Coach", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("BirthdayYear")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CountOfTitles")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PESEL")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<double>("baseSalary")
-                        .HasColumnType("REAL");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Coach");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Coach");
-
-                    b.UseTphMappingStrategy();
-                });
 
             modelBuilder.Entity("footballClubMass.Models.Contract", b =>
                 {
@@ -116,6 +78,7 @@ namespace footballClubMass.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("InjuryDescription")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -131,6 +94,7 @@ namespace footballClubMass.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Surname")
@@ -189,63 +153,6 @@ namespace footballClubMass.Migrations
                     b.ToTable("PreviousClub");
                 });
 
-            modelBuilder.Entity("footballClubMass.Models.SetPieceCoachTypeDb", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("setPieceCoachId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("type")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("setPieceCoachId");
-
-                    b.ToTable("SetPieceCoachTypeDb");
-                });
-
-            modelBuilder.Entity("footballClubMass.Models.MotorCoach", b =>
-                {
-                    b.HasBaseType("footballClubMass.Models.Coach");
-
-                    b.Property<int>("degreeEducationType")
-                        .HasColumnType("INTEGER");
-
-                    b.HasDiscriminator().HasValue("MotorCoach");
-                });
-
-            modelBuilder.Entity("footballClubMass.Models.SetPieceCoach", b =>
-                {
-                    b.HasBaseType("footballClubMass.Models.Coach");
-
-                    b.Property<bool?>("CanTeachPanemka")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool?>("CanTeachPositioning")
-                        .HasColumnType("INTEGER");
-
-                    b.HasDiscriminator().HasValue("SetPieceCoach");
-                });
-
-            modelBuilder.Entity("footballClubMass.Models.CoachContract", b =>
-                {
-                    b.HasBaseType("footballClubMass.Models.Contract");
-
-                    b.Property<int>("Clause")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("coachId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasIndex("coachId");
-
-                    b.HasDiscriminator().HasValue("CoachContract");
-                });
-
             modelBuilder.Entity("footballClubMass.Models.PlayerContract", b =>
                 {
                     b.HasBaseType("footballClubMass.Models.Contract");
@@ -294,28 +201,6 @@ namespace footballClubMass.Migrations
                     b.Navigation("PlayerInfo");
                 });
 
-            modelBuilder.Entity("footballClubMass.Models.SetPieceCoachTypeDb", b =>
-                {
-                    b.HasOne("footballClubMass.Models.SetPieceCoach", "SetPieceCoach")
-                        .WithMany("Types")
-                        .HasForeignKey("setPieceCoachId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SetPieceCoach");
-                });
-
-            modelBuilder.Entity("footballClubMass.Models.CoachContract", b =>
-                {
-                    b.HasOne("footballClubMass.Models.Coach", "coach")
-                        .WithMany("CoachContractList")
-                        .HasForeignKey("coachId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("coach");
-                });
-
             modelBuilder.Entity("footballClubMass.Models.PlayerContract", b =>
                 {
                     b.HasOne("footballClubMass.Models.Player", "player")
@@ -325,11 +210,6 @@ namespace footballClubMass.Migrations
                         .IsRequired();
 
                     b.Navigation("player");
-                });
-
-            modelBuilder.Entity("footballClubMass.Models.Coach", b =>
-                {
-                    b.Navigation("CoachContractList");
                 });
 
             modelBuilder.Entity("footballClubMass.Models.Contract", b =>
@@ -348,11 +228,6 @@ namespace footballClubMass.Migrations
                         .IsRequired();
 
                     b.Navigation("prevClubs");
-                });
-
-            modelBuilder.Entity("footballClubMass.Models.SetPieceCoach", b =>
-                {
-                    b.Navigation("Types");
                 });
 #pragma warning restore 612, 618
         }

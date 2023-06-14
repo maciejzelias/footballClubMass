@@ -1,0 +1,62 @@
+ // Player player = Player.createPrimaryPlayer("Leo", "Messi", 1987, "01231332122", 34, "attacker");
+            // var previousClubs = new List<PreviousClub>
+            // {
+            //     new PreviousClub { clubName = "Barcelona" },
+            //     new PreviousClub { clubName = "PSG" }
+            // };
+            // PlayerInfo playerInfo = new PlayerInfo
+            // {
+            //     nickname = "Atomowapchla",
+            //     prevClubs = previousClubs,
+            //     betterFoot = BetterFoot.left
+            // };
+            // player.PlayerInfo = playerInfo;
+
+            // Player player2 = Player.createPrimaryPlayer("Cristiano", "Ronaldo", 1985, "19528375922", 25, "attacker");
+            // var previousClubs2 = new List<PreviousClub>
+            // {
+            //     new PreviousClub { clubName = "Real"},
+            //     new PreviousClub {clubName = "Juventus"},
+            //     new PreviousClub {clubName = "United"}
+            // };
+            // PlayerInfo playerInfo1 = new PlayerInfo
+            // {
+            //     nickname = "CR7",
+            //     prevClubs = previousClubs2,
+            //     betterFoot = BetterFoot.right
+            // };
+            // player2.PlayerInfo = playerInfo1;
+
+            // PlayerContract PlayerContract1 = new PlayerContract(new DateTime(2025, 2, 15), 15000.0f);
+
+            // PlayerContract1.Pages.Add(new Page { Content = "strona kontraktu", pageNumber = PlayerContract1.Pages.Count + 1 });
+
+            // player.PlayerContractList.Add(PlayerContract1);
+            // player.PlayerContractList.Add(new PlayerContract(new DateTime(2024, 5, 1), 2000.0f));
+
+            // player2.PlayerContractList.Add(new PlayerContract(new DateTime(2027, 1, 13), 1200.0f));
+            // player2.PlayerContractList.Add(new PlayerContract(new DateTime(2022, 5, 11), 15000.0f));
+
+            // _dbContext.Players.Add(player);
+            // _dbContext.Players.Add(player2);
+
+            // MotorCoach coach = new MotorCoach("Pep", "Guardiola", 1971, "12345678910", 5, 5000.0, DegreeEducationType.Bachelor);
+            // SetPieceCoach coach2 = new SetPieceCoach("Carlo", "Ancelotti", 1959, "02948571291", 4, 2137.0);
+            // coach2.makeFreeKickCoach(true);
+
+            // coach.CoachContractList.Add(new CoachContract(new DateTime(2010, 5, 1), 2115));
+            // coach2.CoachContractList.Add(new CoachContract(new DateTime(2022, 5, 10), 3000));
+
+            // _dbContext.motorCoaches.Add(coach);
+            // _dbContext.setPieceCoaches.Add(coach2);
+
+            // var player = _dbContext.Players.First(p => p.Name == "Leo");
+            // _dbContext.Players.Remove(player);
+
+            // _dbContext.SaveChanges();
+
+            // // Console.WriteLine(player.PESEL);
+            // _dbContext.Players.Add(player);
+            // _dbContext.SaveChanges();
+
+            // _dbContext.Players.ToList();
