@@ -9,7 +9,6 @@ namespace footballClubMass.Models
         public int id { get; set; }
         private string _content;
 
-        [Required]
         public string Content
         {
             get => _content;

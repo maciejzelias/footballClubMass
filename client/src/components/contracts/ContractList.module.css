@@ -1,0 +1,14 @@
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .title {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 50px;
+  }
